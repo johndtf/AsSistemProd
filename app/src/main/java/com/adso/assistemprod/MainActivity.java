@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     RecyclerView listaClientes;
     ArrayList<Clientes> listaArrayClientes;
-    FloatingActionButton fabNuevo;
+    /**FloatingActionButton fabNuevo;*/
     ListaClientesAdapter adapter;
 
     @Override
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         setContentView(R.layout.activity_main);
         txtBuscar = findViewById(R.id.txtBuscar);
         listaClientes = findViewById(R.id.listaClientes);
-        /**fabNuevo = findViewById(R.id.favNuevo);*/
+       /** fabNuevo = findViewById(R.id.fabNuevo);*/
         listaClientes.setLayoutManager(new LinearLayoutManager(this));
 
         DbClientes dbClientes = new DbClientes(MainActivity.this);
@@ -49,12 +49,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
        ListaClientesAdapter adapter = new ListaClientesAdapter(dbClientes.mostrarClientes());
         listaClientes.setAdapter(adapter);
 
-     fabNuevo.setOnClickListener(new View.OnClickListener() {
+     /**fabNuevo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 nuevoRegistro();
             }
-        });
+        });*/
 
         txtBuscar.setOnQueryTextListener(this);
     }
