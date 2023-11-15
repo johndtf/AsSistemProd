@@ -5,7 +5,6 @@ plugins {
 android {
     namespace = "com.adso.assistemprod"
     compileSdk = 34
-
     defaultConfig {
         applicationId = "com.adso.assistemprod"
         minSdk = 28

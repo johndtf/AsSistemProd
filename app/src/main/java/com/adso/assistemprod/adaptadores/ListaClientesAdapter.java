@@ -20,12 +20,11 @@ import java.util.stream.Collectors;
 
 public class ListaClientesAdapter extends RecyclerView.Adapter<ListaClientesAdapter.ClienteViewHolder> {
   ArrayList<Clientes> listaClientes;
-  ArrayList<Clientes> listaOriginal;
+
 
   public ListaClientesAdapter(ArrayList<Clientes> listaClientes){
       this.listaClientes = listaClientes;
-      listaOriginal = new ArrayList<>();
-      listaOriginal.addAll(listaClientes);
+
   }
 
 
@@ -45,26 +44,7 @@ public class ListaClientesAdapter extends RecyclerView.Adapter<ListaClientesAdap
     }
 
 
-    public void filtrado(final String txtBuscar) {
-        int longitud = txtBuscar.length();
-        if (longitud == 0) {
-            listaClientes.clear();
-            listaClientes.addAll(listaOriginal);
-        } else {
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                List<Clientes> collecion = listaClientes.stream()
-                        .filter(i -> i.getNombre().toLowerCase().contains(txtBuscar.toLowerCase()))
-                        .collect(Collectors.toList());
-                listaClientes.clear();
-                listaClientes.addAll(collecion);
-            } else for (Clientes c : listaOriginal) {
-                if (c.getNombre().toLowerCase().contains(txtBuscar.toLowerCase())) {
-                    listaClientes.add(c);
-                }
-            }
-        }
-        notifyDataSetChanged();
-    }
+
 
 
     @Override
